@@ -1,4 +1,5 @@
 var path = require('path');
+var _ = require('lodash');
 var _common = require('./_common');
 
 module.exports = function react(headers) {
@@ -22,7 +23,7 @@ module.exports = function react(headers) {
       });
 
       order.forEach(function(name, i) {
-        var result = _.findWhere(files, {
+        var result = _.find(files, {
           name: name,
         });
 

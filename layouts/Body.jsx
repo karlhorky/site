@@ -1,11 +1,11 @@
 import React from 'react';
 import GithubCorner from 'react-github-corner';
+import { Navigation } from 'antwar-helpers';
+
 import Footer from '../components/Footer.jsx';
 import Algolia from '../components/Algolia.jsx';
 import Gitter from '../components/Gitter.jsx';
 import BodyTemplate from './BodyTemplate.jsx';
-import Navigation from 'antwar-helpers/components/Navigation';
-import RSS from 'antwar-helpers/components/RSS';
 
 export default React.createClass({
   displayName: 'Body',
@@ -15,7 +15,7 @@ export default React.createClass({
     const pathname = props.location.pathname;
 
     return (
-      <BodyTemplate head={<RSS href="/atom.xml" />} {...props}>
+      <BodyTemplate>} {...props}>
         {props.children}
 
         {pathname !== '/' ? this.renderNavigation(props, section.name) : null}

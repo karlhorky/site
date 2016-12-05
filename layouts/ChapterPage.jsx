@@ -1,7 +1,7 @@
 import React from 'react';
 import Router from 'react-router';
+import { Disqus } from 'antwar-helpers';
 
-import Disqus from 'antwar-helpers/components/Disqus';
 import LatestPost from '../components/LatestPost';
 import PrevNext from '../components/PrevNext';
 import PrevNextMini from '../components/PrevNextMini';

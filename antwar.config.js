@@ -1,51 +1,30 @@
-'use strict';
-var path = require('path');
+const path = require('path');
 
-var React = require('react');
-var _ = require('lodash');
-var themeConfig = require('antwar-default-theme');
-var rssPlugin = require('antwar-rss-plugin');
-var prevnextPlugin = require('antwar-prevnext-plugin');
+const React = require('react');
+const _ = require('lodash');
+const rssPlugin = require('antwar-rss-plugin');
+const prevnextPlugin = require('antwar-prevnext-plugin');
 
-var reactHeaders = require('./headers/react');
-var webpackHeaders = require('./headers/webpack');
+const reactHeaders = require('./headers/react');
+const webpackHeaders = require('./headers/webpack');
 
-var sections = require('./sections');
-
-var cwd = process.cwd();
-
-// XXX: add custom loader to common config
-themeConfig.webpack.common = {
-  resolveLoader: {
-    alias: {
-      markdown: path.join(cwd, 'loaders/markdown')
-    }
-  }
-};
+const sections = require('./sections');
 
 module.exports = {
-  webpack: themeConfig.webpack, // SCSS bits
-  assets: [
-    {
-      from: '../react/manuscript/images',
-      to: 'react/images',
-    },
-    {
-      from: '../webpack/manuscript/images',
-      to: 'webpack/images',
-    },
-    {
-      from: '../react/project_source/builds',
-      to: 'demos',
-    },
-    {
-      from: './extra',
-      to: '.'
-    }
-  ],
-  output: 'build',
+  template: {
+    title: 'SurviveJS',
+    file: path.join(__dirname, 'template.ejs')
+  },
   title: 'SurviveJS',
   author: 'Juho Vepsäläinen',
+  template: {
+    title: 'SurviveJS',
+    // RSS settings if you want to expose a RSS feed
+    rss: {
+      title: 'SurviveJS',
+      href: '/atom.xml'
+    }
+  },
   blog: {
     author: function() {
       return React.createElement(
@@ -62,9 +41,6 @@ module.exports = {
     }
   },
   keywords: ['webpack', 'react', 'javascript', 'programming', 'web development'],
-  deploy: {
-    branch: 'gh-pages',
-  },
   pageTitle: function(config, pageTitle) {
     var siteName = config.name;
 
@@ -82,7 +58,7 @@ module.exports = {
     prevnextPlugin()
   ],
   layout: function() {
-    return require('./layouts/Body.jsx');
+    return require('./layouts/Site.jsx').default;
   },
   style: function() {
     require('./styles/custom.scss');

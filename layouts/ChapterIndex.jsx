@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
-import {Link} from 'react-router';
-import Moment from 'antwar-helpers/components/Moment';
+import { Link } from 'react-router';
+import { Moment } from 'antwar-helpers';
 
 export default React.createClass({
   displayName: 'ChapterIndex',

@@ -2,8 +2,8 @@ import _ from 'lodash';
 import React from 'react';
 import titleCase from 'title-case';
 
-import Disqus from 'antwar-helpers/components/Disqus';
-import Moment from 'antwar-helpers/components/Moment';
+import { Disqus, Moment } from 'antwar-helpers';
+
 import Author from '../components/Author';
 import PrevNext from '../components/PrevNext';
 import PrevNextMini from '../components/PrevNextMini';
