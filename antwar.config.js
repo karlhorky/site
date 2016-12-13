@@ -53,7 +53,7 @@ module.exports = {
   plugins: [
     rssPlugin({
       baseUrl: 'http://survivejs.com/',
-      sections: ['blog'],
+      sections: ['blog']
     }),
     prevnextPlugin()
   ],
@@ -69,8 +69,8 @@ module.exports = {
   paths: {
     '/': {
       path: function() {
-        return require.context('./pages', false, /^\.\/.*\.jsx$/);
-      },
+        return require('./pages/index.jsx');
+      }
     },
     blog: sections.blog(),
     react: sections.react(reactHeaders),

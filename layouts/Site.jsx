@@ -5,7 +5,7 @@ const Site = ({ children }) => (
   <div id="site" className="site">
     {children}
 
-    <Footer section={children} />
+    <Footer section={children.section} />
 
     <GitterChat />
   </div>

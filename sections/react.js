@@ -24,7 +24,7 @@ module.exports = function react(headers) {
 
       order.forEach(function(name, i) {
         var result = _.find(files, {
-          name: name,
+          fileName: path.basename(name, path.extname(name))
         });
 
         if(!result) {
